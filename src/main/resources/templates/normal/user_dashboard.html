@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" 
+    th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${user.name}">User Dashboard</title>
+</head>
+<body>
+    <section>
+        <!-- <h1>welcome to user dashboard</h1><br>
+        <h1>User name: <span th:text="${user.name}"></span></h1>
+        <h1>User email: <span th:text="${user.email}"></span></h1>
+        <h1>User About: <span th:text="${user.About}"></span></h1><br>
+        <h1><a th:href="@{/logout}">Logout</a></h1> -->
+        <div class="container">
+            <div class="section-cards">
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <div class="card text-center">
+                        <div class="card-image">
+                            <!-- <img th:src="@{'/image/'user.ImageUrl}" class="img-fluid"> -->
+                            <img src="/src/main/resources/static/image/default.png" class="img-fluid">
+                        </div>
+                        <div class="content text-center">
+                            <h4 class="card-caption tex-white mt-3" th:text="${user.name}"></h4>
+                            <div class="table-responsive">
+                                <table class="table text-white mt-2">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#ID</th>
+                                            <th scope="col">
+                                                <span th:text="${user.id}"></span>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Email</th>
+                                            <td><span th:text="${user.email}"></span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Status</th>
+                                            <td><span th:text="${user.enabled}"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    <!-- script for active class -->
+    <script>
+        $(document).ready(()=>{
+            $('.item').removeClass('active');
+            $('#profile-link').addClass('active');
+        });
+    </script>
+    </section>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card tex-white">
+                        <div class="card-body tex-white">
+                            <h3 class="text-center text-white">Change password</h3>
+                            <form th:action="@{/user/change-password}" method="post">
+                                <!-- old password fields -->
+                                <div class="form-group">
+                                    <label for="old_password">Old password</label>
+                                    <input name="oldPassword" type="password" class="form-control" placeholder="Enter old password">
+                                </div>
+
+                                <!-- new password fields -->
+                                <div class="form-group">
+                                    <label for="new_password">New password</label>
+                                    <input name="newPassword" type="password" class="form-control" placeholder="Enter new password">
+                                </div>
+
+                                <!-- confirm password fields -->
+                                <div class="form-group">
+                                    <label for="cnf_password">Confirm password</label>
+                                    <input name="cnfPassword" type="password" class="form-control" placeholder="Confirm password">
+                                </div>
+
+                                <!-- Button fields -->
+                                <div class="container text-center">
+                                    <div class="row">
+                                        <div class="col md-6">
+                                            <button type="submit" class="btn btn-block btn-success">Submit</button>
+                                        </div>
+                                        <div class="col md-6">
+                                            <button type="reset" class="btn btn-block btn-warning">Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(document).ready(() => {
+                $('.item').removeClass('active');
+                $('#settings-link').addClass('active');
+            });
+        </script>
+    </section>
+</body>
+
+</html>

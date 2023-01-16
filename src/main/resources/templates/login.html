@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <section class="banner d-flex justify-content-center align-items-center">
+        <div calss="text-center">
+            <div class="card p-3">
+                <div class="container text-center">
+                    <img src="/image/secLock.png" class="img-fluid my-3" style="width: 90px;"/>
+                </div>
+                <!-- <h5 class="text-center">SignIn here !</h5> -->
+                <div th:if="${param.error}" class="alert-danger text-center">
+                    Invalid credentials
+                </div>
+                <div th:if="${param.logout}" class="alert-success text-center">
+                    You have been signOut
+                </div>
+                <div class="car-body">
+                    <form th:action="@{/signin}" method="post">
+                        <!-- Email input -->
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="form2Example1">Email address</label>
+                            <input type="email" id="email" name="username" placeholder="Example123@gmail.com" class="form-control" />
+                            
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-group mb-3">
+                            <label class="form-label" for="form2Example2">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Password" class="form-control" />
+                            
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                                <!-- Checkbox -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="form2Example31"
+                                        checked />
+                                    <label class="form-check-label" for="form2Example31"> Remember me </label>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <!-- Forget password link -->
+                                <a th:href="@{/forgot-password}">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+                        <!-- Register buttons -->
+                        <div class="text-center">
+                            <p>Not a member? <a th:href="@{/signup}">Register</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+
+
+<body>
+    <section class="d-flex justify-content-center align-items-center container">
+        <style>
+            .card {
+                width: 350px;
+                padding: 10px;
+                border-radius: 20px;
+                background: #fff;
+                border: none;
+                min-height: 350px;
+                position: relative;
+            }
+
+            .container {
+                height: 100vh;
+            }
+
+            body {
+                background: #eee;
+            }
+
+            .mobile-text {
+                color: #989696b8;
+                font-size: 15px;
+            }
+
+            .form-control {
+                margin-right: 12px;
+            }
+
+            .form-control:focus {
+                color: #495057;
+                background-color: #fff;
+                border-color: #ff8880;
+                outline: 0;
+                box-shadow: none;
+            }
+
+            .cursor {
+                cursor: pointer;
+            }
+        </style>
+
+        <div class="card py-5 px-3">
+            <h5 class="m-0">Email verification</h5>
+            <!-- message alert-box -->
+            <div th:if="${session.message}" class="text-center">
+                <div th:classappend="${'alert-'+session.message.type}" class="alert alert mt-3" role="alert">
+                    <span th:text="${session.message.content}"></span>
+                </div>
+            </div>
+            <span class="mobile-text">Enter the code we just send on your Email</span>
+            <form th:action="@{/verify-otp}" method="post">
+                <div class="d-flex flex-row mt-4">
+                    <input maxlength="1" name="first" type="number" class="form-control" autofocus="" required>
+                    <input maxlength="1" name="second" type="number" class="form-control" required>
+                    <input maxlength="1" name="third" type="number" class="form-control" required>
+                    <input maxlength="1" name="four" type="number" class="form-control" required>
+                </div>
+                <div class="text-center my-4">
+                    <button type="submit" class="btn btn-success">Verify</button>
+                </div>
+            </form>
+            <form th:action="@{/resend-otp}" method="post">
+                <div class="text-center mt-3">
+                    <span class="d-block mobile-text">Don't receive the code?</span>
+                    <span type="submit" class="font-weight-bold text-danger cursor">Resend</span>
+                </div>
+            </form>
+            
+        </div>
+
+    </section>
+</body>
+
+</html>

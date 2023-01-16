@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <section class="d-flex justify-content-center align-items-center container">
+        <style>
+            .card {
+                width: 350px;
+                padding: 10px;
+                border-radius: 20px;
+                background: #fff;
+                border: none;
+                min-height: 350px;
+                position: relative;
+            }
+
+            .container {
+                height: 100vh;
+            }
+
+            body {
+                background: #eee;
+            }
+
+            .mobile-text {
+                color: #989696b8;
+                font-size: 15px;
+            }
+
+            .form-control {
+                margin-right: 12px;
+            }
+
+            .form-control:focus {
+                color: #495057;
+                background-color: #fff;
+                border-color: #ff8880;
+                outline: 0;
+                box-shadow: none;
+            }
+
+            .cursor {
+                cursor: pointer;
+            }
+        </style>
+
+        <div class="card py-3 px-3">
+            <!-- Alert message -->
+            <div th:if="${success}" class="alert alert-success text-center" role="alert" th:text="${success}"></div>
+            <div th:if="${error}" class="alert alert-danger text-center" role="alert" th:text="${error}"></div>
+
+            <div class="text-center my-4">
+                <h5 class="m-0">Email verification</h5>
+                <span class="mobile-text">Enter the email to get OTP code</span>
+                <form th:action="@{/send-otp}" method="post">
+                    <div class="mt-4">
+                        <div class="form-group text-center">
+                            <input required name="email" type="email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="text-center my-4">
+                        <button type="submit" class="btn btn-success">Get OTP</button>
+                    </div>
+                </form>
+            </div>           
+        </div>
+    </section>
+</body>
+
+</html>
