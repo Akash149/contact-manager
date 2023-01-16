@@ -29,25 +29,6 @@ public class MyConfig {
         return new BCryptPasswordEncoder();
     }
 
-    //To javaMailSenter
-    // @Bean
-    // public JavaMailSender getJavaMailSender() {
-    //     JavaMailSenderImpl mailsender = new JavaMailSenderImpl();
-    //     mailsender.setHost("smtp.gmail.com");
-    //     mailsender.setPort(587);
-
-    //     mailsender.setUsername("mr.iotdeveloper@gmail.com");
-    //     mailsender.setPassword("vdjqqokyccjubgzh");
-
-    //     Properties props = mailsender.getJavaMailProperties();
-    //     props.put("mail.transport.protocol", "smtp");
-    //     props.put("mail.smtp.auth","true");
-    //     props.put("mial.smtp.starttls.enable","true");
-    //     props.put("mail.debug","true");
-
-    //     return mailsender;
-    // }
-
     @Bean
     public DaoAuthenticationProvider DaoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

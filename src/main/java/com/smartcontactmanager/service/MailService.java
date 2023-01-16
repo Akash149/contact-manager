@@ -18,7 +18,7 @@ public class MailService {
     public boolean sendEmail(String subject, String message, String to) {
         boolean flag = false;
         String from = "mr.iotdeveloper@gmail.com";
-        String password = "password";
+        String password = "";
         // email send code   
          //Get System properties
          Properties properties = System.getProperties();
